@@ -1,96 +1,255 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  background-color: #1c1c2e;
+  color: #f0f0f0;
+  padding: 1rem;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+h2 {
+  margin-bottom: 1rem;
+  color: #ffaa00;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
-}
-
-.card {
-  padding: 2em;
+/* Menú de navegación */
+#menu {
+  background-color: #2a2a3d;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  border-radius: 6px;
+  margin-bottom: 1rem;
 }
 
-.read-the-docs {
-  color: #888;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+#menu button {
+  background-color: #00aaff;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+#menu button:hover {
+  background-color: #ffaa00;
+}
+
+/* Contenedor principal */
+#app,
+#resultados {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  padding-top: 1rem;
+}
+
+/* Tarjetas de anime */
+.app-card {
+  background-color: #2a2a3d;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+}
+
+.app-card:hover {
+  transform: scale(1.02);
+}
+
+.app-card img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  object-position: top;
+  border-bottom: 1px solid #444;
+}
+
+.app-info {
+  padding: 1rem;
+}
+
+.app-info h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: #00aaff;
+}
+
+.app-info p {
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.app-info a {
+  color: #ffaa00;
+  text-decoration: none;
+}
+
+.app-info a:hover {
+  text-decoration: underline;
+}
+
+/* Descripción expandible */
+.descripcion-expandible {
+  max-height: 4.5em;
+  overflow: hidden;
+  position: relative;
+  transition: max-height 0.3s ease;
+}
+
+.descripcion-expandible.expandida {
+  max-height: none;
+}
+
+.boton-toggle {
+  background: none;
+  border: none;
+  color: #00aaff;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+  padding: 0;
+}
+
+/* Formularios de login y registro */
+.formulario {
+  background-color: #2a2a3d;
+  padding: 2rem;
+  max-width: 400px;
+  margin: 2rem auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.formulario h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #ffaa00;
+}
+
+.formulario label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #f0f0f0;
+}
+
+.formulario input {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.3rem;
+  border: 1px solid #555;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: #1c1c2e;
+  color: #f0f0f0;
+}
+
+.formulario button {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.7rem;
+  background-color: #00aaff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.formulario button:hover {
+  background-color: #ffaa00;
+}
+
+/* Filtro de temporada */
+.filtro-temporada {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 1.5rem;
+}
+
+.filtro-temporada label {
+  font-weight: bold;
+  color: #f0f0f0;
+}
+
+.filtro-temporada input,
+.filtro-temporada select {
+  padding: 0.5rem;
+  border: 1px solid #555;
+  border-radius: 4px;
+  font-size: 1rem;
+  min-width: 120px;
+  background-color: #1c1c2e;
+  color: #f0f0f0;
+}
+
+.filtro-temporada button {
+  padding: 0.6rem 1.2rem;
+  background-color: #00aaff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.filtro-temporada button:hover {
+  background-color: #ffaa00;
+}
+
+/* Mensajes */
+.mensaje {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.mensaje.error {
+  color: #e74c3c;
+}
+
+.mensaje.exito {
+  color: #2ecc71;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .app-card {
+    width: 90%;
   }
-  a:hover {
-    color: #747bff;
+
+  #app,
+  #resultados {
+    flex-direction: column;
+    align-items: center;
   }
-  button {
-    background-color: #f9f9f9;
+
+  .filtro-temporada {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .formulario {
+    margin: 1rem;
   }
 }
